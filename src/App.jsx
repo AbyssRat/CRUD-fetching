@@ -29,7 +29,7 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ "Lakohely" : 'Mongólia, Jurta', "Munkakor" : 'Lovász', "TeljesNev" : 'Altantsetseg'}),
+        body: JSON.stringify({ "Lakohely" : 'Kiskunmajsa', "Munkakor" : 'Xbox 720 trader', "TeljesNev" : 'Ytong Imre'}),
       })
       const result = await response.json()
       console.log('Post Result:', result)
@@ -45,7 +45,7 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ "Lakohely" : 'India', "Munkakor" : 'utcai étel árus', "TeljesNev" : 'Yugadhyaksh'}),
+        body: JSON.stringify({ "Lakohely" : 'lol', "Munkakor" : 'utcai étel árus', "TeljesNev" : 'Yugadhyaksh'}),
       })
       const result = await response.json()
       console.log('Put Result:', result)
