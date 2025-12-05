@@ -29,7 +29,7 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name: 'New Item', value: 123 }),
+        body: JSON.stringify({ "Lakohely" : 'Mongólia, Jurta', "Munkakor" : 'Lovász', "TeljesNev" : 'Altantsetseg'}),
       })
       const result = await response.json()
       console.log('Post Result:', result)
@@ -45,7 +45,7 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name: 'Updated Item', value: 456 }),
+        body: JSON.stringify({ "Lakohely" : 'Ott', "Munkakor" : 'Ez', "TeljesNev" : 'Az' }),
       })
       const result = await response.json()
       console.log('Put Result:', result)
@@ -69,7 +69,7 @@ function App() {
     }
   }
 
-  
+
 
 
   
@@ -77,10 +77,10 @@ function App() {
   return (
     <>
     <h1>fetching so hard rn</h1>
-      <button>get data</button>
-      <button>post data</button>
-      <button>put data</button>
-      <button>delete data</button>
+      <button onClick={fetchData}>get data</button>
+      <button onClick={fetchPost}>post data</button>
+      <button onClick={() => fetchPut[12]}>put data</button>
+      <button onClick={() => fetchDelete[34]}>delete data</button>
     </>
   )
 }
