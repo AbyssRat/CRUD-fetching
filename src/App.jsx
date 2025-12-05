@@ -82,7 +82,7 @@ function App() {
     <h1>fetching so hard rn</h1>
       <button onClick={fetchData}>get data</button>
       <button onClick={fetchPost}>post data</button>
-      <button onClick={() => fetchPut(23)}>put data</button>
+      <button onClick={() => fetchPut(109)}>put data</button>
       <button onClick={() => fetchDelete(9)}>delete data</button>
     </>
   )
