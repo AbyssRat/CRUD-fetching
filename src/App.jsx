@@ -1,33 +1,86 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
+  const url = 'https://retoolapi.dev/yEtUV8/data'
+  const [data, setData] = useState([])
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(url)
+      const result = await response.json()
+      setData(result)
+      console.log(result)
+    } catch (error) {
+      console.error('Error fetching data:', error)
+    }
+  }
+  
+
+  const fetchPost = async () => {
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name: 'New Item', value: 123 }),
+      })
+      const result = await response.json()
+      console.log('Post Result:', result)
+    } catch (error) {
+      console.error('Error posting data:', error)
+    }
+  }
+
+  const fetchPut = async (id) => {
+    try {
+      const response = await fetch(`${url}/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name: 'Updated Item', value: 456 }),
+      })
+      const result = await response.json()
+      console.log('Put Result:', result)
+    } catch (error) {
+      console.error('Error updating data:', error)
+    }
+  }
+
+  const fetchDelete = async (id) => {
+    try {
+      const response = await fetch(`${url}/${id}`, {
+        method: 'DELETE',
+      })
+      if (response.ok) {
+        console.log(`Item with id ${id} deleted successfully`)
+      } else {
+        console.error('Error deleting data')
+      }
+    } catch (error) {
+      console.error('Error deleting data:', error)
+    }
+  }
+
+  
+
+
+  
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <h1>fetching so hard rn</h1>
+      <button>get data</button>
+      <button>post data</button>
+      <button>put data</button>
+      <button>delete data</button>
     </>
   )
 }
