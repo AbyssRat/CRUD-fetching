@@ -45,13 +45,16 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ "Lakohely" : 'Ott', "Munkakor" : 'Ez', "TeljesNev" : 'Az' }),
+        body: JSON.stringify({ "Lakohely" : 'India', "Munkakor" : 'utcai étel árus', "TeljesNev" : 'Yugadhyaksh'}),
       })
       const result = await response.json()
       console.log('Put Result:', result)
-    } catch (error) {
+    }
+    catch (error) {
       console.error('Error updating data:', error)
     }
+
+     
   }
 
   const fetchDelete = async (id) => {
@@ -79,8 +82,8 @@ function App() {
     <h1>fetching so hard rn</h1>
       <button onClick={fetchData}>get data</button>
       <button onClick={fetchPost}>post data</button>
-      <button onClick={() => fetchPut[12]}>put data</button>
-      <button onClick={() => fetchDelete[34]}>delete data</button>
+      <button onClick={() => fetchPut(23)}>put data</button>
+      <button onClick={() => fetchDelete(9)}>delete data</button>
     </>
   )
 }
